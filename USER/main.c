@@ -51,10 +51,17 @@ int main(void)
 //        while(1);
 
 //      绘制图形测试
-        OLED_DrawLine(0,0,120,50,1);           //画直线
-        OLED_DrawRectangle(90,0,120,20,1);      //画矩形
-        OLED_FillArea(0,40,30,80,1);         //填充矩形区域
-        OLED_DrawCircle(60,35,28,1);        //画圆
+//        OLED_DrawLine(0,0,120,50);           //画直线
+//        OLED_DrawRectangle(90,0,120,20);      //画矩形
+//        OLED_FillArea(0,40,30,80);         //填充矩形区域
+//        OLED_DrawCircle(60,35,28);        //画圆
+//        OLED_DrawTriangle(0,0,40,20,20,60);     //画三角形
+//        OLED_DrawHLine(70,10,20);               //画水平线
+//        OLED_DrawHLine(70,30,-20);
+//        OLED_DrawVLine(70,20,20);           //画竖直线
+//        OLED_DrawVLine(80,40,-20);
+//        OLED_DrawArc(60,35,28,3);         //画1/4圆弧
+//        OLED_DrawRRectangle(50,10,120,60,10);       //画圆角矩形
         OLED_RefreshGRAM();             //更新显存，不更新不显示
     }
     
