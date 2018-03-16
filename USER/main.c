@@ -5,6 +5,7 @@
 #include "oled.h"
 #include "graphic.h"      //绘制图形函数库
 #include "QR_Encode.h"
+#include "usart.h"	
 /*
     3线SPI模式，单向传输
 	OLED_SCL - PE7
@@ -19,10 +20,12 @@ int main(void)
     extern u8 STMMCU[];
     extern u8 RENESAS[];
 
+    u8 i,j;  
     delay_init();	    	 //延时函数初始化
     NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);	 //设置NVIC中断分组2:2位抢占优先级，2位响应优先级
     LED_Init();			     //LED端口初始化
     KEY_Init();
+    uart_init(9600);
     OLED_GPIO_Config();
     OLED_Init();
 //    OLED_WriteCmd(0xa7);    //反向显示

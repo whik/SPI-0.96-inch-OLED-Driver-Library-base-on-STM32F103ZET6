@@ -261,11 +261,18 @@ void OLED_DrawQRCode(char *website)
     {
         for(j = 0; j < MAX_MODULESIZE; j++)
         {
+            if(m_byModuleData[i][j] == 1)
+            {
             //2倍放大，1个点放大为4个点
-            OLED_DrawPoint_QRcode(2*i, 2*j, m_byModuleData[i][j]);
-            OLED_DrawPoint_QRcode(2*i, 2*j+1, m_byModuleData[i][j]);        
-            OLED_DrawPoint_QRcode(2*i+1, 2*j, m_byModuleData[i][j]);  
-            OLED_DrawPoint_QRcode(2*i+1, 2*j+1, m_byModuleData[i][j]);
+                OLED_DrawPoint(2*i, 2*j);
+                OLED_DrawPoint(2*i, 2*j+1);        
+                OLED_DrawPoint(2*i+1, 2*j);  
+                OLED_DrawPoint(2*i+1, 2*j+1);
+//            OLED_DrawPoint_QRcode(2*i, 2*j, m_byModuleData[i][j]);
+//            OLED_DrawPoint_QRcode(2*i, 2*j+1, m_byModuleData[i][j]);        
+//            OLED_DrawPoint_QRcode(2*i+1, 2*j, m_byModuleData[i][j]);  
+//            OLED_DrawPoint_QRcode(2*i+1, 2*j+1, m_byModuleData[i][j]);
+            }   
         }
     }    
 }
