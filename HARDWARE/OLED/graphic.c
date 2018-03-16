@@ -1,5 +1,6 @@
 #include "graphic.h"
 #include "oled.h"
+#include "QR_Encode.h"      //二维码显示库
 
 //OLED的显存
 //存放格式如下.
@@ -42,7 +43,19 @@ void OLED_DrawPoint(u8 x, u8 y)
     else
         OLED_GRAM[x][pos] &= ~temp;
 }
-
+//画点，二维码
+void OLED_DrawPoint_QRcode(u8 x, u8 y, u8 dot)
+{
+    u8 pos, bx, temp = 0;
+    if(x > 127 || y > 63)return; //超出范围了.
+    pos = 7 - y / 8;
+    bx = y % 8;
+    temp = 1 << (7 - bx);
+    if(dot)
+        OLED_GRAM[x][pos] |= temp;
+    else
+        OLED_GRAM[x][pos] &= ~temp;
+}
 //x1,y1,x2,y2 填充区域的对角坐标
 //确保x1<=x2;y1<=y2,x1<=127 ,0<=y1<=63
 //dot:0,清空;1,填充
@@ -237,3 +250,24 @@ void OLED_DrawRRectangle(u8 x0, u8 y0, u8 x1, u8 y1, u8 R)
     OLED_DrawArc(x0 + R, y0 + R, R, 3);
     OLED_DrawArc(x1 - R, y0 + R, R, 4);
 }
+//显示二维码，网站长度不能太长，二维码只支持支付宝扫码
+void OLED_DrawQRCode(char *website)
+{
+//  MAX_MODULESIZE = 33;
+//  m_byModuleData[MAX_MODULESIZE][MAX_MODULESIZE];
+    u8 i,j;
+    EncodeData(website);
+    for(i = 0; i < MAX_MODULESIZE; i++)
+    {
+        for(j = 0; j < MAX_MODULESIZE; j++)
+        {
+            //2倍放大，1个点放大为4个点
+            OLED_DrawPoint_QRcode(2*i, 2*j, m_byModuleData[i][j]);
+            OLED_DrawPoint_QRcode(2*i, 2*j+1, m_byModuleData[i][j]);        
+            OLED_DrawPoint_QRcode(2*i+1, 2*j, m_byModuleData[i][j]);  
+            OLED_DrawPoint_QRcode(2*i+1, 2*j+1, m_byModuleData[i][j]);
+        }
+    }    
+}
+    
+

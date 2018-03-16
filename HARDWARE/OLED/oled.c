@@ -49,6 +49,19 @@ void OLED_WriteCmd(u8 cmd)
     }
 }
 
+void OLED_DrawP(u8 x, u8 y, u8 dot) //画点，功能未完成，未测试
+{
+    OLED_SetCursor(x, y);
+    OLED_DC = 1;
+    OLED_SCL = 0;
+    if(dot)
+        OLED_SDA = 1;
+    else
+        OLED_SDA = 0;
+    OLED_SCL = 1;
+    OLED_SCL = 0;
+}
+
 void OLED_WriteData(u8 dat)		//写一字节数据
 {
     u8 i = 8;
@@ -67,7 +80,7 @@ void OLED_WriteData(u8 dat)		//写一字节数据
 }
 
 void OLED_WriteData2(u8 dat)	//反显数据
-{
+{  
     u8 i = 8;
     OLED_DC = 1;
     OLED_SCL = 0;
@@ -249,6 +262,8 @@ void OLED_DisChinese(u8 x, u8 y, u8 Num)
     for(i = 0; i < 16; i++)
         OLED_WriteData(CHN[2 * Num + 1][i]);	//汉字编码的第二行
 }
+
+
 #if 1		//8x16字体,行列坐标显示,x：0-15，y：0-3
 
 //显示字符,8*16字体,x：0-15，y：0-3

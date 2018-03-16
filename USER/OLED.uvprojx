@@ -373,7 +373,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\HARDWARE\LED;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\STM32F10x_FWLib\inc;..\CORE;..\HARDWARE\KEY;..\HARDWARE\OLED</IncludePath>
+              <IncludePath>..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\STM32F10x_FWLib\inc;..\CORE;..\HARDWARE\OLED;..\HARDWARE\QRCODE;..\HARDWARE\INC</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -437,16 +437,6 @@
           <GroupName>HARDWARE</GroupName>
           <Files>
             <File>
-              <FileName>led.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\LED\led.c</FilePath>
-            </File>
-            <File>
-              <FileName>key.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\KEY\key.c</FilePath>
-            </File>
-            <File>
               <FileName>oled.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\OLED\oled.c</FilePath>
@@ -455,6 +445,16 @@
               <FileName>graphic.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\OLED\graphic.c</FilePath>
+            </File>
+            <File>
+              <FileName>key.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\SRC\key.c</FilePath>
+            </File>
+            <File>
+              <FileName>led.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\SRC\led.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -525,6 +525,61 @@
               <FileName>README.TXT</FileName>
               <FileType>5</FileType>
               <FilePath>..\README.TXT</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>QRCODE</GroupName>
+          <Files>
+            <File>
+              <FileName>bitstream.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\QRCODE\bitstream.c</FilePath>
+            </File>
+            <File>
+              <FileName>mask.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\QRCODE\mask.c</FilePath>
+            </File>
+            <File>
+              <FileName>mmask.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\QRCODE\mmask.c</FilePath>
+            </File>
+            <File>
+              <FileName>mqrspec.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\QRCODE\mqrspec.c</FilePath>
+            </File>
+            <File>
+              <FileName>QR_Encode.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\QRCODE\QR_Encode.c</FilePath>
+            </File>
+            <File>
+              <FileName>qrencode.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\QRCODE\qrencode.c</FilePath>
+            </File>
+            <File>
+              <FileName>qrinput.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\QRCODE\qrinput.c</FilePath>
+            </File>
+            <File>
+              <FileName>qrspec.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\QRCODE\qrspec.c</FilePath>
+            </File>
+            <File>
+              <FileName>rscode.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\QRCODE\rscode.c</FilePath>
+            </File>
+            <File>
+              <FileName>split.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\QRCODE\split.c</FilePath>
             </File>
           </Files>
         </Group>

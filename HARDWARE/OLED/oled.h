@@ -40,6 +40,7 @@ void OLED_DisString_F6X8(u8 x, u8 y, u8 *str);
 void OLED_DisNumber_F6X8(u8 x, u8 y, u8 num);
 
 
+void OLED_DrawP(u8 x, u8 y, u8 dot);
 
 
 #endif

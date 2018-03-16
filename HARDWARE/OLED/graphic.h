@@ -14,6 +14,9 @@ void OLED_DrawHLine(u8 x0, u8 y0,int length);
 void OLED_DrawArc(u16 x0, u16 y0, u8 r, u8 part);
 void OLED_DrawRRectangle(u8 x0, u8 y0, u8 x1, u8 y1, u8 R);
 
+void OLED_DrawPoint_QRcode(u8 x, u8 y, u8 dot);
+void OLED_DrawQRCode(char *website);
+
 #endif
 
 
